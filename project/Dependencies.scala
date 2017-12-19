@@ -16,4 +16,6 @@ object Dependencies {
 
   val gcloudDatastore = "com.google.cloud" % "google-cloud-datastore" % gcloudVersion
   val gcloudStorage = "com.google.cloud" % "google-cloud-storage" % gcloudVersion
+  val gcloudHttpClient = "com.google.http-client" % "google-http-client" % "1.22.0"
+  val gcloudApiPubsub = "com.google.apis" % "google-api-services-pubsub" % "v1-rev368-1.22.0"
 }

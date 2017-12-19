@@ -6,7 +6,7 @@ resolvers ++= Seq[Resolver](
   Classpaths.sbtPluginReleases
 )
 
-addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.0")
+// addSbtPlugin("io.get-coursier" % "sbt-coursier" % "1.0.0") TODO - Need extra coursier to work with S3
 
 addSbtPlugin("ohnosequences" % "sbt-s3-resolver" % "0.16.0")
 

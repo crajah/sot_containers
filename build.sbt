@@ -1,9 +1,10 @@
 import scala.language.postfixOps
-import Dependencies._
 import ohnosequences.sbt.SbtS3Resolver.autoImport.{s3, s3region, s3resolver}
 import sbt.Keys.{libraryDependencies, publishTo, _}
 import sbt.{Resolver, _}
 import com.amazonaws.regions.{Region, Regions}
+import Dependencies._
+import SotDependencies._
 
 lazy val IT = config("it") extend Test
 
@@ -59,6 +60,8 @@ lazy val root = (project in file("."))
       pureConfig,
       grizzledLogging,
       shapeless,
-      gcloudDatastore
+      gcloudDatastore,
+      gcloudApiPubsub,
+      sotGcp
     )
   )
