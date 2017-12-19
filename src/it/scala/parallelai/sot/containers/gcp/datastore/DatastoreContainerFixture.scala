@@ -2,6 +2,8 @@ package parallelai.sot.containers.gcp.datastore
 
 import org.scalatest.Suite
 import org.testcontainers.containers.wait.Wait
+import com.google.cloud.NoCredentials
+import com.google.cloud.datastore.DatastoreOptions
 import parallelai.sot.containers.gcp.ProjectFixture
 import parallelai.sot.containers.{Container, ContainersFixture}
 import parallelai.sot.gcp.datastore.Kind
@@ -15,6 +17,13 @@ trait DatastoreContainerFixture {
   lazy val kind: Kind = Kind("kind-test")
 
   lazy val datastoreContainer = new DatastoreContainer(8081)
+
+  lazy val datastoreOptions: DatastoreOptions =
+    DatastoreOptions.newBuilder()
+      .setHost(datastoreContainer.ip)
+      .setProjectId(project.id)
+      .setCredentials(NoCredentials.getInstance)
+      .build()
 
   override def teardown(): Unit = {
     // TODO
