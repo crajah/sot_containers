@@ -14,7 +14,6 @@ lazy val root = (project in file("."))
   .configs(IT)
   .settings(inConfig(IT)(Defaults.testSettings): _*)
   .settings(Revolver.settings)
-  .settings(addArtifact(artifact in (IntegrationTest, packageBin), packageBin in IntegrationTest).settings)
   .settings(
     name := "sot_containers",
     inThisBuild(Seq(
@@ -51,6 +50,8 @@ lazy val root = (project in file("."))
       val prefix = if (isSnapshot.value) "snapshot" else "release"
       Some(s3resolver.value(s"Parallel AI $prefix S3 bucket", s3(s"$prefix.repo.parallelai.com")) withMavenPatterns)
     },
+    publishArtifact in Test := true,
+    publishArtifact in IT := true,
     libraryDependencies ++= Seq(
       scalatest % "test, it",
       mockito % "test, it",
