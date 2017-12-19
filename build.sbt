@@ -14,6 +14,7 @@ lazy val root = (project in file("."))
   .configs(IT)
   .settings(inConfig(IT)(Defaults.testSettings): _*)
   .settings(Revolver.settings)
+  .settings(addArtifact(artifact in (IntegrationTest, packageBin), packageBin in IntegrationTest).settings)
   .settings(
     name := "sot_containers",
     inThisBuild(Seq(
