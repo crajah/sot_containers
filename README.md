@@ -4,5 +4,5 @@ SOT Containers
 Release
 -------
 ```
-sbt release with-defaults
+sbt "release with-defaults"
 ```

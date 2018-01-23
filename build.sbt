@@ -19,7 +19,7 @@ lazy val root = (project in file("."))
     name := "sot_containers",
     inThisBuild(Seq(
       organization := "parallelai",
-      scalaVersion := "2.11.2"
+      scalaVersion := "2.11.11"
     )),
     scalacOptions ++= Seq(
       "-deprecation",
