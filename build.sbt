@@ -62,7 +62,9 @@ lazy val root = (project in file("."))
       grizzledLogging,
       shapeless,
       gcloudDatastore,
-      gcloudApiPubsub,
+      gcloudApiPubsub
+    ),
+    libraryDependencies ++= Seq(
       sotGcp
     )
   )
