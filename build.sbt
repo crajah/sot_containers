@@ -6,6 +6,9 @@ import com.amazonaws.regions.{Region, Regions}
 import Dependencies._
 import SotDependencies._
 
+lazy val scala_2_11 = "2.11.11"
+lazy val scala_2_12 = "2.12.4"
+
 lazy val IT = config("it") extend Test
 
 lazy val root = (project in file("."))
@@ -19,7 +22,7 @@ lazy val root = (project in file("."))
     name := "sot_containers",
     inThisBuild(Seq(
       organization := "parallelai",
-      scalaVersion := "2.11.11"
+      scalaVersion := scala_2_11
     )),
     scalacOptions ++= Seq(
       "-deprecation",
@@ -38,6 +41,7 @@ lazy val root = (project in file("."))
       "-Yrangepos",
       "-Yrepl-sync"
     ),
+    crossScalaVersions := Seq(scala_2_11, scala_2_12),
     parallelExecution in ThisBuild := false,
     fork in Test := true,
     fork in IntegrationTest := true,
